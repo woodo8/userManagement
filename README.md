@@ -1,3 +1,17 @@
+# Full Stack Authentification and User management application
+
+# Created using(frontend)
+React, Material ui, JWT, RTK query, redux
+
+# (backend)   
+Node.js, Express, JSON WEB TOKEN, MongoDb Atlas for backend(Api's for generating data)
+
+codes: https://github.com/woodo8/webAuthBack
+
+# Demo:
+
+https://usermanagementwoodo.netlify.app/auth
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
