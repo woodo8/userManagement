@@ -1,0 +1,21 @@
+.tableContainer{
+    margin: 40px 0;
+}
+.buttonsWrapper{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin: 30px 0 !important;
+}
+.manage_btn{
+    margin: 0 10px !important;
+}
+.manage_btn:last-child{
+    margin-right: 0 !important;
+}
+.delete{
+    background-color: red !important;
+}
+.block{
+    background-color: green !important;
+}

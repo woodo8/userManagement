@@ -1,0 +1,32 @@
+.authContainer{
+    min-height: 100vh !important;
+    width: 100% !important;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+}
+.authWrapper{
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+.MuiTabs-flexContainer{
+    justify-content: center !important;
+}
+.alertSignup{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transition: all 0.3s linear !important;
+}
+.defaultAlert{
+    position: fixed;
+    top: 20px;
+    right: -420px;
+    transition: all 0.3s linear !important;
+}
+@media (max-width:992px) {
+    .authWrapper{
+        padding: 10px;
+    }
+}
