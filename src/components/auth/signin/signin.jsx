@@ -87,8 +87,7 @@ export default function Signin() {
             </Grid>
             <Button onClick={handleSubmit} sx={{ marginTop: "15px" }} fullWidth variant='contained'>Sign in</Button>
             <Typography variant='h6' sx={{ color: "red", margin: "20px 0" }}>
-                {JSON.stringify(error?.error ? error.error : error?.data?.message)}
-                {errorMessage}
+                {error ? JSON.stringify(error?.error ? error.error : error?.data?.message) : errorMessage}
             </Typography>
         </div>)
 }
