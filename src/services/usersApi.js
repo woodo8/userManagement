@@ -7,8 +7,8 @@ import {
 export const usersApi = createApi({
     reducerPath: "tasksApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:5000/"
-        // baseUrl: "https://webauth.herokuapp.com/"
+        // baseUrl: "http://localhost:5000/"
+        baseUrl: "https://webauth.herokuapp.com/"
     }),
     tagTypes: [ 'Users'],
     endpoints: (builder) => ({
