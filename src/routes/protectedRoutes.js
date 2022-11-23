@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import decode from "jwt-decode"
 const ProtectedRoutes = () => {
-
-
     try {
         const loggedIn = localStorage.getItem("access");
 

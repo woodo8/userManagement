@@ -13,18 +13,35 @@ import { StateContext } from '../../context/context';
 import TableRowComp from '../tableRow/tableRow';
 import { useNavigate } from 'react-router-dom';
 
+import FaceIcon from '@mui/icons-material/Face';
 export default function BasicTable() {
   const [updateStatus] = useUpdateStatusMutation()
   const { state, dispatch, data, refetch, error, isLoading, isSuccess } = React.useContext(StateContext)
   const [allChecked, setallChecked] = useState(false)
+  const [user, setUser] = useState("")
+
 
   const navigate = useNavigate()
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")).name)
+  }, [])
+
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+
 
   useEffect(() => {
     if (data?.length !== 0 && data?.length === state?.userIDs.length || data?.length < state?.userIDs.length) {
       setallChecked(true)
     } else {
       setallChecked(false)
+    }
+
+    if (data?.length === 0) {
+      localStorage.removeItem("access")
+      localStorage.removeItem("user")
+      navigate("/auth")
     }
   }, [data, state])
 
@@ -61,13 +78,21 @@ export default function BasicTable() {
   return (
     <>
       <Grid className='tableContainer' container justifyContent="center">
-        <Grid item xs={10} sx={{ display: "flex", justifyContent: "end" }}>
-          <Button onClick={() => navigate("/auth")} className='manage_btn' variant='contained'>Signin</Button>
-          <Button onClick={() => {
-            localStorage.removeItem("access")
-            localStorage.removeItem("user")
-            navigate("/auth")
-          }} className='manage_btn' variant='contained'>Logout</Button>
+        <Grid item xs={10} sx={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <FaceIcon />
+            <h4 style={{ margin: "0 10px" }}>
+              {user}
+            </h4>
+          </div>
+          <div>
+            <Button onClick={() => navigate("/auth")} className='manage_btn' variant='contained'>Signin</Button>
+            <Button onClick={() => {
+              localStorage.removeItem("access")
+              localStorage.removeItem("user")
+              navigate("/auth")
+            }} className='manage_btn' variant='contained'>Logout</Button>
+          </div>
         </Grid>
         <Grid className='buttonsWrapper' item xs={10}>
           <Typography variant='h4'>{state.userIDs.length} users selected</Typography>
